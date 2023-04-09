@@ -1,17 +1,41 @@
 package com.challenger.alura.adopet.Controllers;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+import com.challenger.alura.adopet.services.CriptografiaService;
+
+@RestController
 @RequestMapping("/tutores")
 public class TutoresController {
 
-    @GetMapping
-    private void RecuperaTodosTutores(){
+    @Autowired
+    CriptografiaService criptograficaService;
+
+    @PostMapping 
+    private void GravarTutores(){
+        System.out.println( criptograficaService.gerarHash("Familia98"));
         
     }
+
+    
+    @GetMapping
+    private void RecuperaTodosTutores(){
+        System.out.println( criptograficaService.gerarHash("Familia98"));
+        
+    }
+    
+    @DeleteMapping 
+    private void DeletarTutores(){}
+
+    @PutMapping 
+    private void AtualizarTutores(){}
+
 
     
 
